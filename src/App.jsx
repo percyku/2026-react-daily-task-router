@@ -6,7 +6,8 @@ import {
   Route,
   useNavigate,
 } from "react-router-dom";
-
+import Post from "./Post";
+import PostId from "./PostId";
 const MainPage = () => {
   return <p>這是首頁</p>;
 };
@@ -57,6 +58,9 @@ function App() {
           <NavLink to="/todo">
             <p>Todo 頁面</p>
           </NavLink>
+          <NavLink to="/post/test123">
+            <p>Post 頁面</p>
+          </NavLink>
         </div>
         {/* Routes, Route 練習區 */}
         <Routes>
@@ -64,7 +68,9 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/todo" element={<Todo />} />
           <Route path="/login" element={<Login />} />
-
+          <Route path="/post" element={<Post />}>
+            <Route path=":postId" element={<PostId />} />
+          </Route>
           <Route
             path="*"
             element={
